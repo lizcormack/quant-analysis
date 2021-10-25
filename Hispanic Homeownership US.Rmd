@@ -26,15 +26,15 @@ Strochak et al. (2019) [Mapping the Hispanic Homeownership Gap](https://www.urba
 ## Sample & Variables
 The focus of our research is the Hispanic or Latino populations of Loredo, Texas and Boston, Massachusetts.
 
-Our categorical variables are:
-1. City 
-2. Homeownership vs. Rental
-3. Household Type
-
-Our continuous variables are:
-1. Median Household Income
-2. Educational Attainment 
-3. Median Age
+Our categorical variables are:   
+1. City    
+2. Homeownership vs. Rental   
+3. Household Type    
+ 
+Our continuous variables are:    
+1. Median Household Income   
+2. Educational Attainment    
+3. Median Age   
 
 Total number of observations: 3220
 
