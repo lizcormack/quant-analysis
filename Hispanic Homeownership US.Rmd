@@ -1,0 +1,65 @@
+---
+title: "Hispanic Homeownership in the United States and Educational Attainment"
+output: html_document
+---
+Gauri Nagpal, Joaquin Tome, Liz Cormack
+
+## Research Question
+Does owning a home increase the likelihood of getting a university degree for Latinx immigrants to the United States?
+
+## Related Articles
+
+"The official statistical report and empirical evidence prove that two- thirds of 250 million migrants in China are sheltered in the private rental housing sector of the receiving cities in 2016."
+ 
+Sohu. (2018). [Projections for China’s rental housing market.](https://house. focus.cn/zixun/4ce70da0536e7259.html)
+
+"Many governments throughout the developing world have launched land titling programs as part of their poverty alleviation and urbanization policies. Typically, these programs involve issuing titles of public (or sometimes private) tracts of land to their current occupants. Empirical studies of land titling have found that these programs have large effects (…) However, in most cases, these interventions have not been accompanied by regulatory policies that ease the burden represented by the cost of registering future ownership changes. Thus, as time goes by, and as the beneficiary titleholders pass away, divorce or migrate, if these poor households cannot afford the costs entailed in remaining formal, we will observe a gradual process of deregularization that will eventually lead to a new need for costly public interventions."
+
+Galiani Sebastián and Ernesto Schargrodsky (2016). [“The degularization of land titles”](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2819867), National Bureau of Economic Research, Paper 22482, pp. 1-23.
+
+"Over the next 25 years, the Hispanic population will make up more than half of all net new households in the United States. Hispanic Americans will drive future housing demand and, by extension, general economic growth in this country.
+
+Most of the US Hispanic population is younger than 35, and Hispanic millennials represent over a quarter of the cohort about to reach homebuying age."
+
+Strochak et al. (2019) [Mapping the Hispanic Homeownership Gap](https://www.urban.org/urban-wire/mapping-hispanic-homeownership-gap)
+
+## Sample & Variables
+The focus of our research is the Hispanic or Latino populations of Loredo, Texas and Boston, Massachusetts.
+
+Our categorical variables are:
+1. City 
+2. Homeownership vs. Rental
+3. Household Type
+
+Our continuous variables are:
+1. Median Household Income
+2. Educational Attainment 
+3. Median Age
+
+Total number of observations: 3220
+
+
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(tidycensus)
+library(readxl)
+library(knitr)
+```
+
+```{r, echo=FALSE, message=FALSE}
+acs_data <- load_variables(2019, "acs5")
+```
+
+```{r, echo=FALSE, message=FALSE}
+acs_hispanic <- get_acs(geography = "county", 
+                   variables = c(pop = "B01003_001",
+                                 latinpop = "B03001_003",
+                                 latinedu_gender = "C15002I_001",
+                                 latinhtype = "B11001I_001",
+                                 latininc = "B19001I_001",
+                                 latinown = "B25003I_002",
+                                 latinrent = "B25003I_003",
+                                 medianage = "B01002I_001"), 
+                   output = "wide")
+```
